@@ -1,19 +1,33 @@
 const app = Vue.createApp({
     data() {
       return {
-        showBooks: true,
-        books: [
-          { title: 'Name of the wind', author: 'Patrick rothfuss' },
-          { title: 'The way of kings', author: 'Brandon sanderson' },
-          { title: 'The final empire', author: 'Brandon sanderson' },
-        ],
+        showBooks: true,  
+        title: 'The Way of Kings',
+        author: 'Brandon Sanderson',
+        age: 45,
+
+        x: 0,
+        y: 0,
+        
       }
     },
+
     methods: {
       toggleShowBooks() {
         this.showBooks =  !this.showBooks
-      },
+    },
+        handleEvent(e, data) {
+        console.log(e.type, e)
+        if (data) {
+            console.log(data)
+        }
+    },
+        handleMousemove(e) {
+        this.x = e.offsetX
+        this.y = e.offsetY
+        }
     }
+    
   })
   
   app.mount('#app')
